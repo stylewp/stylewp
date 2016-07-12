@@ -1,0 +1,23 @@
+{
+  "name": "stylewp",
+  "version": "1.0.0",
+  "homepage": "",
+  "description": "6ix Toronto's best",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Style WP"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "latest",
+    "fontawesome": "latest"
+  }
+}
