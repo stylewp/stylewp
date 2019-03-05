@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme.
+ * The header for our theme
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -14,51 +14,68 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content=""/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'strapped' ); ?></a>
 
-	<header id="masthead" class="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
-    <nav role="navigation" id="navbar-main" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <div class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
-          <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+<div id="page" class="site"> 
+  
+<header id="masthead" role="banner">
+      
+      <nav role="navigation" id="navbar-main" class="navbar" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 
-            <?php stylewp_the_custom_logo(); ?>
-             
-          </div>
+      <div class="container">
 
-          <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <?php
-            $args = array(
-              'theme_location' => 'primary',
-              'depth'      => 2,
-              'container'  => false,
-              'menu_class'     => 'nav navbar-nav',
-              'walker'     => new Bootstrap_Walker_Nav_Menu()
-              );
-            if (has_nav_menu('primary')) {
-              wp_nav_menu($args);
-            }
-            ?>
+	        <div class="navbar-header">
 
-          </div>
-        </div>
-      </div>           
-    </nav>
-  </header><!-- #masthead -->
-    
- <div class="container">
- <div id="content" class="site-content">
+	            <div class="navbar-logo"> 
+	              <?php stylewp_the_custom_logo(); ?> 
+	            </div><!-- .navbar-logo -->    
+
+	            <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-right">
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+
+	          </div><!-- .navbar-header -->
+
+          <div class="menu-container">
+
+	          <div class="navbar-inverse side-collapse in"> 
+
+	              <ul class="nav navbar-nav">
+
+	                <li class="menu-links">
+	                  <?php
+	                     $args = array(
+	                  'theme_location' => 'primary',
+	                  'depth'      => 2,
+	                  'container'  => false,
+	                  'menu_class'     => 'nav navbar-nav custmenu',
+	                  'walker'     => new Bootstrap_Walker_Nav_Menu()
+	                  );
+	                  if (has_nav_menu('primary')) {
+	                    wp_nav_menu($args);
+	                  }
+	                ?>
+	                </li>
+
+	              </ul>
+
+	        </div><!--/.nav-navbar-inverse -->
+
+       </div><!-- .menu-container -->
+
+      </div><!-- .container -->
+
+      </nav>
+
+</header>
+
+
+<div id="content" class="site-content container">

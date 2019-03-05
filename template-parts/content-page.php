@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php.
+ * Template part for displaying page content in page.php
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -9,12 +9,19 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail('full', array('class' => 'rounded')); ?>
+		</div><!--  .post-thumbnail -->
+	<?php endif; ?>
+
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title" itemprop="name">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content" itemprop="text">
+	<div class="entry-content">
 		<?php
 			the_content();
 
